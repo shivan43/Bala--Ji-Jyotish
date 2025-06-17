@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bala Ji Jyotish</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      position: relative;
+    }
+
+    /* Background Video */
+    #video-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* Dark overlay for readability */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .top-bar {
+      background-color: rgba(255, 204, 0, 0.9);
+      color: #4b2e05;
+      padding: 0.5rem 2rem;
+      font-weight: bold;
+      text-align: right;
+      font-size: 0.9rem;
+    }
+
+    header {
+      background: linear-gradient(to right, #ffa500cc, #ffcc00cc);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .facts, .services, .comments {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .facts h2, .services h2, .comments h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #ffd700;
+      border-left: 6px solid #ffa500;
+      padding-left: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .slider {
+      position: relative;
+      overflow: hidden;
+      height: 180px;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .services {
+      background-color: rgba(255, 250, 240, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(255, 165, 0, 0.2);
+      margin-top: 2rem;
+    }
+
+    .service-item {
+      margin-bottom: 1rem;
+      font-weight: bold;
+      color: #8b4513;
+      transition: transform 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: scale(1.05);
+      color: #e65100;
+    }
+
+    .comments textarea, .comments input[type="submit"] {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .comments input[type="submit"] {
+      background-color: #ffcc00;
+      color: #4b2e05;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .comments input[type="submit"]:hover {
+      background-color: #ffa500;
+    }
+
+    footer {
+      background: rgba(255, 215, 0, 0.9);
+      padding: 2rem;
+      text-align: center;
+      font-weight: bold;
+      color: #4b2e05;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video Background -->
+  <video id="video-bg" autoplay muted loop>
+    <source src="199293-909903179_small.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark overlay for text readability -->
+  <div class="overlay"></div>
+
+  <div class="top-bar">
+    Contact: shivansh@gmail.com | Phone: xxxxxxxxx
+  </div>
+
+  <header>Bala Ji Jyotish</header>
+
+  <section class="facts">
+    <h2>Astrology in Indian Mythology</h2>
+    <div class="slider">
+ <div class="slide active">1. Origins of Indian Astrology:
+Indian astrology, known as Jyotish Shastra, has its roots in the ancient Vedic scriptures and is considered one of the six Vedangas (limbs of the Vedas). It is believed to have been revealed by divine sages (rishis) such as Sage Parashara and Sage Bhrigu, who received this sacred knowledge through intense meditation and spiritual insight. The primary aim of Jyotish is not just prediction, but understanding the influence of celestial bodies on human life and guiding individuals toward a righteous path (dharma).</div>
+            <div class="slide">2. The Role of the Navagrahas:
+Central to Indian astrology are the Navagrahas—the nine celestial influencers: Surya (Sun), Chandra (Moon), Mangal (Mars), Budh (Mercury), Guru (Jupiter), Shukra (Venus), Shani (Saturn), Rahu, and Ketu. These are not just planets or astronomical points, but deities with distinct mythological origins and characteristics. For instance, Rahu and Ketu are shadow planets created when the demon Svarbhanu was beheaded by Lord Vishnu during the churning of the ocean (Samudra Manthan), symbolizing eclipses and karmic patterns.</div>
+            <div class="slide">3. Mythological Stories Behind the Planets:
+Each graha (planet) is linked to rich mythological stories. Shani, the slow-moving Saturn, is feared and revered due to his role in delivering karmic justice. According to mythology, he is the son of Surya and Chhaya, and he underwent severe penance to gain his powers. Shukra (Venus), the teacher of the demons (Asuras), possessed the knowledge of reviving the dead (Mrita Sanjeevani), which even the gods desired. These stories reflect the spiritual and moral lessons tied to planetary influences.</div>
+            <div class="slide">4. Astrology in Daily and Religious Life:
+Astrology plays a significant role in various aspects of Hindu life. From determining a child’s name based on the moon sign (nakshatra), to selecting auspicious times (muhurtas) for weddings, travel, and rituals, Jyotish influences important life decisions. The birth chart (janma kundali) is seen as a map of one’s karma, indicating both challenges and opportunities. Temples dedicated to the Navagrahas are found across India, where devotees offer prayers to reduce planetary afflictions.</div>
+            <div class="slide">5. Spiritual Purpose and Karmic Insight:
+Unlike Western astrology, Indian astrology deeply connects with the idea of karma and rebirth. It is believed that one’s birth chart reflects past life deeds and the soul's current journey. The planetary positions are thus tools for understanding one’s spiritual progress and challenges. Jyotish is not meant to instill fear, but to guide individuals toward self-awareness, patience, and alignment with cosmic laws. Through remedies like mantras, gemstones, fasting, and charity, one can harmonize planetary energies and lead a balanced life.</div>
+        </div>
+    </div>
+  </section>
+
+  <section class="services">
+        <h2>What We Offer</h2>
+        <p class="service-item">🔯 Full Kundli Analysis - Understand your birth chart and its implications.</p>
+        <p class="service-item">💍 Kundli Milan - Match horoscopes for marriage compatibility.</p>
+        <p class="service-item">📅 Date & Mahurat Finding - Select auspicious timings for major events.</p>
+    </section>
+  <section class="comments">
+    <h2>Leave a Comment</h2>
+    <form>
+      <textarea placeholder="Your comment..." rows="5"></textarea>
+      <input type="submit" value="Submit Comment">
+    </form>
+  </section>
+  <audio id="bg-music" loop>
+  <source src="soft-piano-music-312509.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+<button id="play-music-btn" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffcc00;
+  color: #4b2e05;
+  border: none;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 999;
+">
+  🎵 Play Music
+</button>
+  <footer>
+    Contact us: shivansh@gmail.com | Phone: xxxxxxxxx
+  </footer>
+
+  <script>
+     const music = document.getElementById("bg-music");
+  const button = document.getElementById("play-music-btn");
+
+  button.addEventListener("click", () => {
+    music.play();
+    button.style.display = "none"; // hide button after play
+  });
+    let slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 4000);
+  </script>
+</body>
+</html>
