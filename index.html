@@ -19,7 +19,6 @@
       position: relative;
     }
 
-    /* Background Video */
     #video-bg {
       position: fixed;
       top: 0; left: 0;
@@ -29,7 +28,6 @@
       z-index: -2;
     }
 
-    /* Dark overlay for readability */
     .overlay {
       position: fixed;
       top: 0; left: 0;
@@ -93,6 +91,7 @@
     }
 
     .services {
+      position: relative;
       background-color: rgba(255, 250, 240, 0.85);
       border-radius: 15px;
       box-shadow: 0 4px 20px rgba(255, 165, 0, 0.2);
@@ -144,13 +143,10 @@
 </head>
 <body>
 
-  <!-- Video Background -->
   <video id="video-bg" autoplay muted loop>
     <source src="199293-909903179_small.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
-
-  <!-- Dark overlay for text readability -->
   <div class="overlay"></div>
 
   <div class="top-bar">
@@ -162,7 +158,7 @@
   <section class="facts">
     <h2>Astrology in Indian Mythology</h2>
     <div class="slider">
- <div class="slide active">1. Origins of Indian Astrology:
+       <div class="slide active">1. Origins of Indian Astrology:
 Indian astrology, known as Jyotish Shastra, has its roots in the ancient Vedic scriptures and is considered one of the six Vedangas (limbs of the Vedas). It is believed to have been revealed by divine sages (rishis) such as Sage Parashara and Sage Bhrigu, who received this sacred knowledge through intense meditation and spiritual insight. The primary aim of Jyotish is not just prediction, but understanding the influence of celestial bodies on human life and guiding individuals toward a righteous path (dharma).</div>
             <div class="slide">2. The Role of the Navagrahas:
 Central to Indian astrology are the Navagrahas—the nine celestial influencers: Surya (Sun), Chandra (Moon), Mangal (Mars), Budh (Mercury), Guru (Jupiter), Shukra (Venus), Shani (Saturn), Rahu, and Ketu. These are not just planets or astronomical points, but deities with distinct mythological origins and characteristics. For instance, Rahu and Ketu are shadow planets created when the demon Svarbhanu was beheaded by Lord Vishnu during the churning of the ocean (Samudra Manthan), symbolizing eclipses and karmic patterns.</div>
@@ -177,11 +173,28 @@ Unlike Western astrology, Indian astrology deeply connects with the idea of karm
   </section>
 
   <section class="services">
-        <h2>What We Offer</h2>
-        <p class="service-item">🔯 Full Kundli Analysis - Understand your birth chart and its implications.</p>
-        <p class="service-item">💍 Kundli Milan - Match horoscopes for marriage compatibility.</p>
-        <p class="service-item">📅 Date & Mahurat Finding - Select auspicious timings for major events.</p>
-    </section>
+    <h2>What We Offer</h2>
+    <p class="service-item">🔯 Full Kundli Analysis - Understand your birth chart and its implications.</p>
+    <p class="service-item">💍 Kundli Milan - Match horoscopes for marriage compatibility.</p>
+    <p class="service-item">📅 Date & Mahurat Finding - Select auspicious timings for major events.</p>
+    <button id="book-appointment-btn" style="
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ffa500;
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    ">
+      📅 Book Appointment
+    </button>
+  </section>
+
   <section class="comments">
     <h2>Leave a Comment</h2>
     <form>
@@ -189,45 +202,126 @@ Unlike Western astrology, Indian astrology deeply connects with the idea of karm
       <input type="submit" value="Submit Comment">
     </form>
   </section>
+
   <audio id="bg-music" loop>
-  <source src="soft-piano-music-312509.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
-<button id="play-music-btn" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #ffcc00;
-  color: #4b2e05;
-  border: none;
-  padding: 10px 15px;
-  font-weight: bold;
-  border-radius: 10px;
-  cursor: pointer;
-  z-index: 999;
-">
-  🎵 Play Music
-</button>
+    <source src="soft-piano-music-312509.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <button id="play-music-btn" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffcc00;
+    color: #4b2e05;
+    border: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 999;
+  ">
+    🎵 Play Music
+  </button>
+
+  <!-- Appointment Popup -->
+  <div id="appointment-popup" style="
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  ">
+    <div style="
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+      color: #333;
+      font-family: 'Roboto', sans-serif;
+    ">
+      <button onclick="closePopup()" style="
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        color: #999;
+        cursor: pointer;
+      ">&times;</button>
+      <h3 style="margin-bottom: 1rem; color: #4b2e05;">Book Appointment</h3>
+      <form id="appointment-form">
+        <input type="text" id="name" placeholder="Full Name" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 8px;">
+        <input type="tel" id="phone" placeholder="Phone Number" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 8px;">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;">
+        <label for="tob">Time of Birth</label>
+        <input type="time" id="tob" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;">
+        <input type="text" id="pob" placeholder="Place of Birth" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;">
+        <label for="appointment-date">Appointment Date</label>
+        <input type="date" id="appointment-date" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;">
+        <input type="submit" value="Submit Appointment" style="width: 100%; padding: 0.75rem; background-color: #ffa500; color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+      </form>
+    </div>
+  </div>
+
   <footer>
     Contact us: shivansh@gmail.com | Phone: xxxxxxxxx
   </footer>
 
   <script>
-     const music = document.getElementById("bg-music");
-  const button = document.getElementById("play-music-btn");
+    const music = document.getElementById("bg-music");
+    const button = document.getElementById("play-music-btn");
 
-  button.addEventListener("click", () => {
-    music.play();
-    button.style.display = "none"; // hide button after play
-  });
+    button.addEventListener("click", () => {
+      music.play();
+      button.style.display = "none";
+    });
+
     let slides = document.querySelectorAll('.slide');
     let index = 0;
-
     setInterval(() => {
       slides[index].classList.remove('active');
       index = (index + 1) % slides.length;
       slides[index].classList.add('active');
     }, 4000);
+
+    const popup = document.getElementById("appointment-popup");
+    const openBtn = document.getElementById("book-appointment-btn");
+    openBtn.addEventListener("click", () => {
+      popup.style.display = "flex";
+    });
+    function closePopup() {
+      popup.style.display = "none";
+    }
+
+    // WhatsApp Form Submission
+    document.getElementById("appointment-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const dob = document.getElementById("dob").value;
+      const tob = document.getElementById("tob").value;
+      const pob = document.getElementById("pob").value;
+      const apptDate = document.getElementById("appointment-date").value;
+
+      const message = `*New Appointment Request*\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n📅 DOB: ${dob}\n⏰ Time: ${tob}\n📍 Place: ${pob}\n📆 Appointment: ${apptDate}`;
+
+      const phoneNumber = "918700515611"; // Change this to your WhatsApp number
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+
+      closePopup();
+      document.getElementById("appointment-form").reset();
+    });
   </script>
 </body>
 </html>
+
